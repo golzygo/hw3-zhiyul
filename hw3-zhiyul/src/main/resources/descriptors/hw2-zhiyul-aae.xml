@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<analysisEngineDescription xmlns="http://uima.apache.org/resourceSpecifier">
+  <frameworkImplementation>org.apache.uima.java</frameworkImplementation>
+  <primitive>false</primitive>
+  <delegateAnalysisEngineSpecifiers>
+    <delegateAnalysisEngine key="TokenUniGramAnnotatorDescriptor">
+      <import name="descriptors.TokenUniGramAnnotatorDescriptor"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="TestElementAnnotatorDescriptor">
+      <import name="descriptors.TestElementAnnotatorDescriptor"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="TokenBiGramAnnotatorDescriptor">
+      <import name="descriptors.TokenBiGramAnnotatorDescriptor"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="TokenAnnotatorDescriptor">
+      <import name="descriptors.TokenAnnotatorDescriptor"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="EvaluatorDescriptor">
+      <import name="descriptors.EvaluatorDescriptor"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="TokenOverlapScorerDescriptor">
+      <import name="descriptors.TokenOverlapScorerDescriptor"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="GoldenAnswerScorerDescriptor">
+      <import name="descriptors.GoldenAnswerScorerDescriptor"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="TokenTriGramAnnotatorDescriptor">
+      <import name="descriptors.TokenTriGramAnnotatorDescriptor"/>
+    </delegateAnalysisEngine>
+    <delegateAnalysisEngine key="NGramOverlapScorerDescriptor">
+      <import name="descriptors.NGramOverlapScorerDescriptor"/>
+    </delegateAnalysisEngine>
+  </delegateAnalysisEngineSpecifiers>
+  <analysisEngineMetaData>
+    <name>hw2-zhiyul-aae</name>
+    <description>An annotator pipeline that will process documents that contain questions and answers, and output scores for each answers using different scorer algorithm.</description>
+    <version>1.0</version>
+    <vendor>Zhiyu Li</vendor>
+    <configurationParameters searchStrategy="language_fallback"/>
+    <configurationParameterSettings/>
+    <flowConstraints>
+      <fixedFlow>
+        <node>TestElementAnnotatorDescriptor</node>
+        <node>TokenAnnotatorDescriptor</node>
+        <node>TokenUniGramAnnotatorDescriptor</node>
+        <node>TokenBiGramAnnotatorDescriptor</node>
+        <node>TokenTriGramAnnotatorDescriptor</node>
+        <node>NGramOverlapScorerDescriptor</node>
+        <node>EvaluatorDescriptor</node>
+        <node>TokenOverlapScorerDescriptor</node>
+        <node>GoldenAnswerScorerDescriptor</node>
+      </fixedFlow>
+    </flowConstraints>
+    <fsIndexCollection/>
+    <capabilities>
+      <capability>
+        <inputs/>
+        <outputs>
+          <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Question</type>
+          <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Answer</type>
+          <type allAnnotatorFeatures="true">edu.cmu.deiis.types.Token</type>
+          <type allAnnotatorFeatures="true">edu.cmu.deiis.types.AnswerScore</type>
+          <type allAnnotatorFeatures="true">edu.cmu.deiis.types.NGram</type>
+        </outputs>
+        <languagesSupported/>
+      </capability>
+    </capabilities>
+    <operationalProperties>
+      <modifiesCas>true</modifiesCas>
+      <multipleDeploymentAllowed>true</multipleDeploymentAllowed>
+      <outputsNewCASes>false</outputsNewCASes>
+    </operationalProperties>
+  </analysisEngineMetaData>
+  <resourceManagerConfiguration/>
+</analysisEngineDescription>
