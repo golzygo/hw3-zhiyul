@@ -15,9 +15,6 @@
     <delegateAnalysisEngine key="TokenAnnotatorDescriptor">
       <import name="descriptors.TokenAnnotatorDescriptor"/>
     </delegateAnalysisEngine>
-    <delegateAnalysisEngine key="EvaluatorDescriptor">
-      <import name="descriptors.EvaluatorDescriptor"/>
-    </delegateAnalysisEngine>
     <delegateAnalysisEngine key="TokenOverlapScorerDescriptor">
       <import name="descriptors.TokenOverlapScorerDescriptor"/>
     </delegateAnalysisEngine>
@@ -46,7 +43,6 @@
         <node>TokenBiGramAnnotatorDescriptor</node>
         <node>TokenTriGramAnnotatorDescriptor</node>
         <node>NGramOverlapScorerDescriptor</node>
-        <node>EvaluatorDescriptor</node>
         <node>TokenOverlapScorerDescriptor</node>
         <node>GoldenAnswerScorerDescriptor</node>
       </fixedFlow>
