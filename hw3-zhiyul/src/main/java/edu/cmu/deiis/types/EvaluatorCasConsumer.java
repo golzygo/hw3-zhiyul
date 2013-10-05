@@ -1,17 +1,23 @@
 package edu.cmu.deiis.types;
 
+import java.io.IOException;
 import java.util.Iterator;
 
 import org.apache.uima.collection.CasConsumer_ImplBase;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.resource.ResourceProcessException;
+import org.apache.uima.util.ProcessTrace;
 import org.apache.uima.cas.CAS;
 import org.apache.uima.cas.CASException;
 import org.apache.uima.cas.FSIndex;
+import org.apache.uima.collection.StatusCallbackListener;
 
 import edu.cmu.deiis.types.AnswerScore;
 
 public class EvaluatorCasConsumer extends CasConsumer_ImplBase{
+  double accuracyAccumulator=0;
+  long questionProcessed=0;
+  
   public void processCas(CAS aCAS) throws ResourceProcessException {
     JCas aJcas;
     try {
@@ -50,6 +56,14 @@ public class EvaluatorCasConsumer extends CasConsumer_ImplBase{
       }
       System.out.println(answerScore.getAnswer().getCoveredText());
     }
-    System.out.println("Accuracy: "+totalCorrectNum*1.0/totalNum + "\n");
+    double accuracy=totalCorrectNum*1.0/totalNum;
+    accuracyAccumulator+=accuracy;
+    questionProcessed++;
+    System.out.println("Accuracy: "+accuracy + "\n");
+  }
+  
+  public void collectionProcessComplete(ProcessTrace arg0) throws ResourceProcessException,
+  IOException {
+    System.out.println("Average Accuracy: "+ accuracyAccumulator/questionProcessed);
   }
 }
