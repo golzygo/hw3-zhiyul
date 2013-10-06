@@ -1,6 +1,6 @@
 
-/* First created by JCasGen Wed Sep 11 13:44:28 EDT 2013 */
-package edu.cmu.deiis.types;
+/* First created by JCasGen Sat Oct 05 20:59:09 EDT 2013 */
+package org.cleartk.score.type;
 
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.JCasRegistry;
@@ -11,11 +11,12 @@ import org.apache.uima.cas.impl.TypeImpl;
 import org.apache.uima.cas.Type;
 import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
+import org.apache.uima.jcas.cas.TOP_Type;
 
 /** 
  * Updated by JCasGen Sat Oct 05 20:59:09 EDT 2013
  * @generated */
-public class AnswerScore_Type extends Annotation_Type {
+public class ScoredTOP_Type extends TOP_Type {
   /** @generated */
   @Override
   protected FSGenerator getFSGenerator() {return fsGenerator;}
@@ -23,25 +24,25 @@ public class AnswerScore_Type extends Annotation_Type {
   private final FSGenerator fsGenerator = 
     new FSGenerator() {
       public FeatureStructure createFS(int addr, CASImpl cas) {
-  			 if (AnswerScore_Type.this.useExistingInstance) {
+  			 if (ScoredTOP_Type.this.useExistingInstance) {
   			   // Return eq fs instance if already created
-  		     FeatureStructure fs = AnswerScore_Type.this.jcas.getJfsFromCaddr(addr);
+  		     FeatureStructure fs = ScoredTOP_Type.this.jcas.getJfsFromCaddr(addr);
   		     if (null == fs) {
-  		       fs = new AnswerScore(addr, AnswerScore_Type.this);
-  			   AnswerScore_Type.this.jcas.putJfsFromCaddr(addr, fs);
+  		       fs = new ScoredTOP(addr, ScoredTOP_Type.this);
+  			   ScoredTOP_Type.this.jcas.putJfsFromCaddr(addr, fs);
   			   return fs;
   		     }
   		     return fs;
-        } else return new AnswerScore(addr, AnswerScore_Type.this);
+        } else return new ScoredTOP(addr, ScoredTOP_Type.this);
   	  }
     };
   /** @generated */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = AnswerScore.typeIndexID;
+  public final static int typeIndexID = ScoredTOP.typeIndexID;
   /** @generated 
      @modifiable */
   @SuppressWarnings ("hiding")
-  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("edu.cmu.deiis.types.AnswerScore");
+  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("org.cleartk.score.type.ScoredTOP");
  
   /** @generated */
   final Feature casFeat_score;
@@ -50,32 +51,14 @@ public class AnswerScore_Type extends Annotation_Type {
   /** @generated */ 
   public double getScore(int addr) {
         if (featOkTst && casFeat_score == null)
-      jcas.throwFeatMissing("score", "edu.cmu.deiis.types.AnswerScore");
+      jcas.throwFeatMissing("score", "org.cleartk.score.type.ScoredTOP");
     return ll_cas.ll_getDoubleValue(addr, casFeatCode_score);
   }
   /** @generated */    
   public void setScore(int addr, double v) {
         if (featOkTst && casFeat_score == null)
-      jcas.throwFeatMissing("score", "edu.cmu.deiis.types.AnswerScore");
+      jcas.throwFeatMissing("score", "org.cleartk.score.type.ScoredTOP");
     ll_cas.ll_setDoubleValue(addr, casFeatCode_score, v);}
-    
-  
- 
-  /** @generated */
-  final Feature casFeat_answer;
-  /** @generated */
-  final int     casFeatCode_answer;
-  /** @generated */ 
-  public int getAnswer(int addr) {
-        if (featOkTst && casFeat_answer == null)
-      jcas.throwFeatMissing("answer", "edu.cmu.deiis.types.AnswerScore");
-    return ll_cas.ll_getRefValue(addr, casFeatCode_answer);
-  }
-  /** @generated */    
-  public void setAnswer(int addr, int v) {
-        if (featOkTst && casFeat_answer == null)
-      jcas.throwFeatMissing("answer", "edu.cmu.deiis.types.AnswerScore");
-    ll_cas.ll_setRefValue(addr, casFeatCode_answer, v);}
     
   
 
@@ -83,17 +66,13 @@ public class AnswerScore_Type extends Annotation_Type {
 
   /** initialize variables to correspond with Cas Type and Features
 	* @generated */
-  public AnswerScore_Type(JCas jcas, Type casType) {
+  public ScoredTOP_Type(JCas jcas, Type casType) {
     super(jcas, casType);
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
 
  
     casFeat_score = jcas.getRequiredFeatureDE(casType, "score", "uima.cas.Double", featOkTst);
     casFeatCode_score  = (null == casFeat_score) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_score).getCode();
-
- 
-    casFeat_answer = jcas.getRequiredFeatureDE(casType, "answer", "edu.cmu.deiis.types.Answer", featOkTst);
-    casFeatCode_answer  = (null == casFeat_answer) ? JCas.INVALID_FEATURE_CODE : ((FeatureImpl)casFeat_answer).getCode();
 
   }
 }
