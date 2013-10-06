@@ -141,5 +141,10 @@
 			<artifactId>cleartk-stanford-corenlp</artifactId>
 			<version>0.8.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.uima</groupId>
+			<artifactId>uimaj-as-activemq</artifactId>
+			<version>2.4.0</version>
+		</dependency>
 	</dependencies>
 </project>
