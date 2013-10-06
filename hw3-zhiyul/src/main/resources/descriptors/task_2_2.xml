@@ -28,9 +28,9 @@
             </errorHandling>
             <checkpoint batch="10000" time="1000ms"/>
         </casProcessor>
-        <casProcessor deployment="integrated" name="scnlp-zhiyul-client.xml">
+        <casProcessor deployment="integrated" name="scnlp-zhiyul-client">
             <descriptor>
-                <import location="scnlp-zhiyul-client.xml"/>
+                <import location="scnlp-aae-client.xml"/>
             </descriptor>
             <deploymentParameters/>
             <errorHandling>

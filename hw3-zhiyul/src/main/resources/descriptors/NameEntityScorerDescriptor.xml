@@ -5,9 +5,9 @@
   <annotatorImplementationName>edu.cmu.deiis.types.NameEntityScorer</annotatorImplementationName>
   <analysisEngineMetaData>
     <name>NameEntityScorerDescriptor</name>
-    <description/>
+    <description>Use the Stanford nlp NamedEntityMention annotation to do the scoring.</description>
     <version>1.0</version>
-    <vendor/>
+    <vendor>Zhiyu Li</vendor>
     <configurationParameters/>
     <configurationParameterSettings/>
     <typeSystemDescription>
